@@ -1,9 +1,12 @@
-const express = require('express');
+const express = require("express");
 const app = express();
 const port = process.env.PORT || 3000;
-app.get('/',(req,res)=>{
-    res.send('Home page');
+
+app.set("view engine", "ejs");
+app.use(express.static("public"));
+app.get("/", (req, res) => {
+  res.render("home");
 });
-app.listen(port,()=>{
-    console.log(`App started on port: ${port}`)
-})
+app.listen(port, () => {
+  console.log(`App started on port: ${port}`);
+});
